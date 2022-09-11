@@ -8,15 +8,19 @@ use yii\base\Model;
 
 class NumberForm extends Model
 {
-    public int $minNumber = 1;
-    public int $maxNumber = 1;
+    public string $minNumber = "000001";
+    public string $maxNumber = "999999";
 
     public function rules(): array
     {
         return [
-            ['minNumber', 'number', 'min' => 1, 'max' => 999999],
+            [['minNumber', 'maxNumber'], function($attribute) {
+                if (!preg_match('/^\d{5}[1-9]$/', $this->$attribute)) {
+                    $this->addError($attribute, "The number must have a format 'XXXXXX'");
+                }
+            }],
             ['maxNumber', function($attribute) {
-                if ($this->$attribute < $this->minNumber) {
+                if (intval($this->$attribute) < $this->minNumber) {
                     $this->addError($attribute, "The maximum number must be greater than the minimum");
                 }
             }],

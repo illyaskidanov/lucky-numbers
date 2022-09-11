@@ -1,0 +1,16 @@
+.number-form .invalid-feedback {
+    display: block;
+    height: 1rem;
+}
+
+.number-form__submit {
+    margin-bottom: 2.25rem;
+}
+
+.number-form__submit .btn {
+    width: 100%;
+}
+
+#lucky_numbers__loading {
+    display: none;
+}
