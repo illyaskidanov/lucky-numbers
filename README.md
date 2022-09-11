@@ -11,16 +11,20 @@ INSTALLATION
 
 ### Install via Make
 
-First you need to run docker environment
-```
-make run
-```
-After you should to build the project
+First you need to build the project
 ```
 make build
 ```
-
-Now project accessible at ```http://localhost:8000```
+After you should to run docker environment
+```
+make run
+```
+Finnaly change permissions on `./web/assets` folder
+```
+sudo chgrp www-data ./web/assets
+sudo chmod g+w ./web/assets
+```
+Now project accessible at `http://localhost:8000`
 
 Also you can run tests
 ```
