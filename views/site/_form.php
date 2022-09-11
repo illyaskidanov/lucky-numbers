@@ -15,6 +15,7 @@ Pjax::begin([
 ]);
 
 $form = ActiveForm::begin([
+    'id' => 'lucky_numbers_form',
     'options' => ['data' => ['pjax' => true]],
 ]);
 ?>
